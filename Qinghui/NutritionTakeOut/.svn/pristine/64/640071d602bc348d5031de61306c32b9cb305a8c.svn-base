@@ -1,0 +1,433 @@
+package com.example.nutrition.dinnerinfo.fragment;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import za.co.immedia.pinnedheaderlistview.PinnedHeaderListView;
+import za.co.immedia.pinnedheaderlistview.SectionedBaseAdapter;
+import android.content.Context;
+import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.Animation;
+import android.view.animation.Animation.AnimationListener;
+import android.view.animation.AnimationSet;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.TranslateAnimation;
+import android.widget.AbsListView;
+import android.widget.AbsListView.OnScrollListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.nutrition.R;
+import com.example.nutrition.dinnerinfo.adapter.ListViewLeftAdapter;
+import com.example.nutrition.dinnerinfo.cart.ShoppingCart;
+import com.example.nutrition.dinnerinfo.cart.helper.CarDBHelper;
+import com.example.nutrition.dinnerinfo.cart.helper.CarDBUtils;
+import com.example.nutrition.dinnerinfo.vo.Shop;
+import com.example.nutrition.nourishment.bean.NourishmentFood;
+import com.example.nutrition.nourishment.bean.NourishmentPar;
+import com.google.gson.Gson;
+import com.lidroid.xutils.BitmapUtils;
+import com.lidroid.xutils.HttpUtils;
+import com.lidroid.xutils.exception.HttpException;
+import com.lidroid.xutils.http.ResponseInfo;
+import com.lidroid.xutils.http.callback.RequestCallBack;
+import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
+
+public class InfoFragment extends Fragment {
+	private ListView listView;// 左侧的listview
+	private PinnedHeaderListView headerListView;
+	private PhlvAdapter phlvAdapter;
+	private List<String> section;
+	private List<List<String>> item;
+	private boolean isScroll = true;
+	private ImageView imageView;
+	private ArrayList<NourishmentFood> lists;
+	private static String name,price,id;
+	private ImageView shopCart;// 购物车
+	private ViewGroup anim_mask_layout;// 动画层
+	private ImageView ball;// 小圆点
+	private int buyNum = 0;// 购买数量
+	private BadgeView buyNumView;// 购物车上的数量标签
+	SQLiteDatabase db;
+	CarDBUtils dbCarUtils;
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		View view = inflater.inflate(R.layout.fragment_dinner_info, null);
+		headerListView = (PinnedHeaderListView) view
+				.findViewById(R.id.pinnedListView);
+		CarDBHelper helper = new CarDBHelper(getActivity());
+		db = helper.getWritableDatabase();
+		dbCarUtils = new CarDBUtils(db);
+		imageView = (ImageView) view.findViewById(R.id.shopping_car_car);
+		shopCart = (ImageView) view.findViewById(R.id.shopping_car_car);
+		listView = (ListView) view.findViewById(R.id.dinner_info_listview_left);
+		HttpUtils utils = new HttpUtils();
+		utils.configResponseTextCharset("GBK");
+		utils.send(HttpMethod.GET,
+				"http://cblue.tunnel.mobi/WebShop/nourishment?flag=4",
+				new RequestCallBack<String>() {
+
+			@Override
+			public void onFailure(HttpException arg0, String arg1) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void onSuccess(ResponseInfo<String> arg0) {
+				// TODO Auto-generated method stub
+				String results = arg0.result;
+				Gson gs = new Gson();
+				NourishmentPar nourishmentPar = gs.fromJson(results,
+						NourishmentPar.class);
+				lists = nourishmentPar.getResultlist();
+				Log.i("tag", lists + "");
+
+				buyNumView = new BadgeView(getActivity(), shopCart);
+				buyNumView.setTextColor(Color.WHITE);
+				buyNumView.setBackgroundColor(Color.RED);
+				buyNumView.setTextSize(12);
+
+				ListViewLeftAdapter adapter = new ListViewLeftAdapter(
+						getActivity());
+				listView.setAdapter(adapter);
+
+				section = new ArrayList<String>();
+				item = new ArrayList<List<String>>();
+				for (int i = 0; i < 5; i++) {
+					section.add(lists.get(i).getFoodintro());
+					List<String> itemItemDatas = new ArrayList<String>();
+
+					for (int j = i * 3; j < i * 3 + 3; j++) {
+
+						itemItemDatas.add(lists.get(j).getFood_name()
+								+ "," + lists.get(j).getImgurl() + ","
+								+ lists.get(j).getFood_price()+","+lists.get(j).getId());
+
+					}
+
+					item.add(itemItemDatas);
+				}
+
+				phlvAdapter = new PhlvAdapter(getActivity(), section,
+						item);
+				headerListView.setAdapter(phlvAdapter);
+
+				listView.setOnItemClickListener(new OnItemClickListener() {
+
+					@Override
+					public void onItemClick(AdapterView<?> parent,
+							View view, int position, long id) {
+						// TODO Auto-generated method stub
+
+						isScroll = false;
+
+						for (int i = 0; i < listView.getChildCount(); i++) {
+							if (i == position) {
+								listView.getChildAt(i)
+								.setBackgroundColor(
+										Color.rgb(255, 255, 255));
+							} else {
+								listView.getChildAt(i)
+								.setBackgroundColor(
+										Color.TRANSPARENT);
+							}
+						}
+
+						int rightSection = 0;
+						for (int i = 0; i < position; i++) {
+							rightSection += phlvAdapter
+									.getCountForSection(i) + 1;
+						}
+
+						headerListView.setSelection(rightSection);
+					}
+				});
+
+
+				headerListView
+				.setOnScrollListener(new OnScrollListener() {
+
+					@Override
+					public void onScrollStateChanged(
+							AbsListView view, int scrollState) {
+						// TODO Auto-generated method stub
+
+					}
+
+					@Override
+					public void onScroll(AbsListView view,
+							int firstVisibleItem,
+							int visibleItemCount,
+							int totalItemCount) {
+						// TODO Auto-generated method stub
+						if (isScroll) {
+							for (int i = 0; i < listView
+									.getChildCount(); i++) {
+
+								if (i == phlvAdapter
+										.getSectionForPosition(firstVisibleItem)) {
+									listView.getChildAt(i)
+									.setBackgroundColor(
+											Color.WHITE);
+
+								} else {
+									listView.getChildAt(i)
+									.setBackgroundColor(
+											Color.GRAY);
+
+								}
+							}
+
+						} else {
+							isScroll = true;
+						}
+					}
+				});
+
+			}
+		});
+
+		imageView.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+
+				Toast.makeText(getActivity(), "sss", 0).show();
+				Intent intent=new Intent();
+				intent.setClass(getActivity(),ShoppingCart.class);
+				intent.putExtra("name",name);
+				intent.putExtra("price",price);
+				startActivity(intent);
+			}
+		});
+
+		return view;
+
+	}
+
+	/**
+	 * @Description: 创建动画层
+	 * @param
+	 * @return void
+	 * @throws
+	 */
+	private ViewGroup createAnimLayout() {
+		ViewGroup rootView = (ViewGroup) getActivity().getWindow()
+				.getDecorView();
+		LinearLayout animLayout = new LinearLayout(getActivity());
+		LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+				LinearLayout.LayoutParams.MATCH_PARENT,
+				LinearLayout.LayoutParams.MATCH_PARENT);
+		animLayout.setLayoutParams(lp);
+		animLayout.setId(Integer.MAX_VALUE);
+		animLayout.setBackgroundResource(android.R.color.transparent);
+		rootView.addView(animLayout);
+		return animLayout;
+	}
+
+	private View addViewToAnimLayout(final ViewGroup parent, final View view,
+			int[] location) {
+		int x = location[0];
+		int y = location[1];
+		LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+				LinearLayout.LayoutParams.WRAP_CONTENT,
+				LinearLayout.LayoutParams.WRAP_CONTENT);
+		lp.leftMargin = x;
+		lp.topMargin = y;
+		view.setLayoutParams(lp);
+		return view;
+	}
+
+	private void setAnim(final View v, int[] startLocation) {
+		anim_mask_layout = null;
+		anim_mask_layout = createAnimLayout();
+		anim_mask_layout.addView(v);// 把动画小球添加到动画层
+		final View view = addViewToAnimLayout(anim_mask_layout, v,
+				startLocation);
+		int[] endLocation = new int[2];// 存储动画结束位置的X、Y坐标
+		shopCart.getLocationInWindow(endLocation);// shopCart是那个购物车
+
+		// 计算位移
+		int endX = 0 - startLocation[0] + 40;// 动画位移的X坐标
+		int endY = endLocation[1] - startLocation[1];// 动画位移的y坐标
+
+		TranslateAnimation translateAnimationX = new TranslateAnimation(0,
+				endX, 0, 0);
+		translateAnimationX.setInterpolator(new LinearInterpolator());
+		translateAnimationX.setRepeatCount(0);// 动画重复执行的次数
+		translateAnimationX.setFillAfter(true);
+
+		TranslateAnimation translateAnimationY = new TranslateAnimation(0, 0,
+				0, endY);
+		translateAnimationY.setInterpolator(new AccelerateInterpolator());
+		translateAnimationY.setRepeatCount(0);// 动画重复执行的次数
+		translateAnimationX.setFillAfter(true);
+
+		AnimationSet set = new AnimationSet(false);
+		set.setFillAfter(false);
+		set.addAnimation(translateAnimationY);
+		set.addAnimation(translateAnimationX);
+		set.setDuration(800);// 动画的执行时间
+		view.startAnimation(set);
+		// 动画监听事件
+		set.setAnimationListener(new AnimationListener() {
+			// 动画的开始
+			@Override
+			public void onAnimationStart(Animation animation) {
+				v.setVisibility(View.VISIBLE);
+			}
+
+			@Override
+			public void onAnimationRepeat(Animation animation) {
+				// TODO Auto-generated method stub
+			}
+
+			// 动画的结束
+			@Override
+			public void onAnimationEnd(Animation animation) {
+				v.setVisibility(View.GONE);
+				buyNum++;// 让购买数量加1
+				buyNumView.setText(buyNum + "");//
+				buyNumView.setBadgePosition(BadgeView.POSITION_TOP_RIGHT);
+				buyNumView.show();
+			}
+		});
+
+	}
+
+	class PhlvAdapter extends SectionedBaseAdapter {
+		private Context context;
+		private int count;
+		private List<String> section; // 相当于expandableListView的 group
+		private List<List<String>> item; // 相当于expandableListView的 child
+		private int poi;
+		public PhlvAdapter(Context context, List<String> section,
+				List<List<String>> item) {
+			this.context = context;
+			this.section = section;
+			this.item = item;
+		}
+
+		@Override
+		public Object getItem(int section, int position) {
+			return item.get(section).get(position);
+		}
+
+		@Override
+		public long getItemId(int section, int position) {
+			return position;
+		}
+
+		@Override
+		public int getSectionCount() {
+			return section.size();
+		}
+
+		@Override
+		public int getCountForSection(int section) {
+			return item.get(section).size();
+		}
+
+		@Override
+		public View getItemView(int section, final int position, View convertView,
+				ViewGroup parent) {
+
+			String itemData = item.get(section).get(position);
+			final String[] result = itemData.split(",");
+			for (int a = 0; a < result.length; a++) {
+				System.out.print(result[a] + "\t");
+			}
+			View view;
+			if (convertView == null) {
+				view = View.inflate(context, R.layout.dinner_info_phlv_item2,
+						null);
+			} else {
+				view = convertView;
+			}
+			TextView tv_itemm = (TextView) view
+					.findViewById(R.id.tv_phlv_item_item3);
+			tv_item = (TextView) view.findViewById(R.id.tv_phlv_item_item);
+			tv_item.setText(result[0]);
+
+
+			tv_itemm.setText(result[2]);
+			ImageView imageView = (ImageView) view.findViewById(R.id.food_img);
+			BitmapUtils bitmapUtils = new BitmapUtils(getActivity());
+			bitmapUtils.display(imageView,
+					"http://cblue.tunnel.mobi/WebShop/nourishmentimages/"
+							+ result[1]);
+			view.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					if(poi==position){
+						count+=1;
+					}else{
+						count =1;
+					}
+					poi = position;
+					int[] startLocation = new int[2];// 一个整型数组，用来存储按钮的在屏幕的X、Y坐标
+					v.getLocationInWindow(startLocation);// 这是获取购买按钮的在屏幕的X、Y坐标（这也是动画开始的坐标）
+					ball = new ImageView(getActivity());// buyImg是动画的图片，我的是一个小球（R.drawable.sign）
+					ball.setImageResource(R.drawable.sign);// 设置buyImg的图片
+					setAnim(ball, startLocation);// 开始执行动画
+					name=result[0];
+					price=result[2];
+					id =  result[3];
+					Toast.makeText(getActivity(), ""+name+price+id+position, 0).show();
+					Shop saveShop = new Shop();
+					saveShop.setName(name);
+					saveShop.setPrice((int)Double.parseDouble(price));
+					saveShop.setNumber(count);
+					saveShop.setDishesid(Integer.parseInt(id));
+					boolean b = dbCarUtils.queryid(Integer.parseInt(id));
+					if(b){
+						dbCarUtils.udateCount(Integer.parseInt(id), count);
+					}else{
+						dbCarUtils.save(saveShop);
+					}
+				}
+			});
+
+			return view;
+		}
+
+		private TextView tv_item;
+
+		@Override
+		public View getSectionHeaderView(int section, View convertView,
+				ViewGroup parent) {
+			String sectionData = this.section.get(section);
+			View view;
+			if (convertView == null) {
+				view = View.inflate(context, R.layout.dinner_info_phlv_item,
+						null);
+			} else {
+				view = convertView;
+			}
+			tv_section = (TextView) view.findViewById(R.id.tv_phlv_item_item2);
+			tv_section.setText(sectionData);
+			tv_section.setBackgroundColor(Color.GRAY);
+
+			return view;
+		}
+
+		private TextView tv_section;
+	}
+}

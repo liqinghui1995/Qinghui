@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">营养外卖</string>
+    <string name="action_settings">Settings</string>
+    <string name="nutrition_food">营养餐</string>
+    <string name="collocation_recommend">搭配推荐</string>
+    <string name="season_recommend">季节推荐</string>
+    <string name="keepHealth_recommend">养生推荐</string>
+    <string name="discount_text">满00减00，满00减00，满00减00，（在线支付宝专享）</string>
+    <string name="spring">春</string>
+    <string name="summer">夏</string>
+    <string name="autumn">秋</string>
+    <string name="winter">冬</string>
+    <string name="shopping_text">购物车空空如也</string>
+    <string name="shopping_btn">还差xx元</string>
+    
+   
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_mypentacles">Mypentacles</string>
+    <string name="title_activity_feedback">Feedback</string>
+    <string name="title_activity_share">Share</string>
+    <string name="title_activity_setting">Setting</string>
+	<string name="change_name_button">保存</string>
+	<string name="title_activity_gift_center">GiftCenter</string>
+    
+    <string name="set_giftcenter_record">兑换记录</string>
+    <string name="set_giftcenter_textview1">礼品中心</string>
+    
+    <string name="set_gift_textview1">礼品获取</string>
+    
+    <string name="set_share_textview1">推荐奖礼品</string>
+    <string name="set_share_pop_textview1">分享即有机会抽中奖品</string>
+    
+    <string name="set_giftcenter_item_btn">立即兑换</string>
+    
+    <string name="set_set_textview1">设置</string>
+    <string name="set_set_button1">帮助</string>
+    <string name="set_set_button2">关于超人</string>
+    <string name="dining_order">排序方式</string>
+    <string name="dining_hot">热门菜系</string>
+    <string name="dining_activity">促销活动</string>
+    
+   
+    <string name="tag_hint">Tag为大小写字母，数字，下划线,中文， 多个用以逗号分隔</string>
+    <string name="alias_hint">Alias为大小写字母，数字，下划线</string>
+    <string name="style_hint">style为数字</string>
+    <string name="error_style_empty">style不能为空</string>
+    <string name="error_alias_empty">alias不能为空</string>
+    <string name="error_tag_empty">tag不能为空</string>
+    <string name="error_tag_gs_empty">格式不对</string>
+    <string name="error_network">网络连接异常,初始化失败 请检查网络！</string>
+    <string name="logining">程序在后台执行, 请查看日志！</string>
+    <string name="setting_su">设置成功</string>
+    
+     <string name="xlistview_header_hint_normal">下拉刷新</string>
+    <string name="xlistview_header_hint_ready">松开刷新数据</string>
+    <string name="xlistview_header_hint_loading">正在加载...</string>
+    <string name="xlistview_header_last_time">上次更新时间：</string>
+    <string name="xlistview_footer_hint_normal">查看更多</string>
+    <string name="xlistview_footer_hint_ready">松开载入更多</string>
+</resources>

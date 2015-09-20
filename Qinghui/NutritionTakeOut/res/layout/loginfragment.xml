@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+     >
+<ImageView 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/login_line"
+    />
+<RelativeLayout
+    android:id="@+id/fragment1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <EditText
+        android:id="@+id/et_register_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:ems="11"
+        android:inputType="number"
+        android:hint="请输入手机号" >
+    </EditText>
+
+    <EditText
+        android:id="@+id/et_register_userpassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/et_register_username"
+        android:layout_alignRight="@+id/et_register_username"
+        android:layout_below="@+id/et_register_username"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="请输入密码"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/btn_register_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/et_register_userpassword"
+        android:layout_alignRight="@+id/et_register_userpassword"
+        android:layout_below="@+id/et_register_userpassword"
+        android:layout_marginTop="10dp"
+        android:background="#CCC"
+        android:textColor="#FFF"
+        android:text="登录" />
+
+    <TextView
+        android:id="@+id/tv_register_dynamic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btn_register_login"
+        android:layout_below="@+id/btn_register_login"
+        android:layout_marginTop="10dp"
+        android:text="通过动态密码登录" />
+
+    <TextView
+        android:id="@+id/tv_register_forget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tv_register_dynamic"
+        android:layout_alignRight="@+id/btn_register_login"
+        android:text="忘记密码？" />
+</RelativeLayout>
+</LinearLayout>

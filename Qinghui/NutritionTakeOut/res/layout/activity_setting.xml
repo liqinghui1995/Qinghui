@@ -1,0 +1,121 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Setting" >
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        
+        android:background="@drawable/btn_red_small_1_n" >
+
+        <ImageView
+            android:id="@+id/set_set_imgback"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            
+            android:background="@drawable/arrow_to_history_order_detail" />
+
+        <TextView
+            android:id="@+id/set_set_textview1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/set_set_textview1"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#ffffff" />
+    </RelativeLayout>
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:orientation="vertical"
+	    android:layout_height="0dp"
+	    android:layout_weight="1"
+	    >
+    <ImageView
+        android:id="@+id/set_set_button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+       	android:background="@drawable/bangzhu" 
+        />
+
+    <ImageView
+        android:id="@+id/set_set_news"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/set_set_button1"
+        android:layout_weight="1"
+        android:background="@drawable/su4" />
+
+    <ImageView
+        android:id="@+id/set_set_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/su6" />
+
+    <RelativeLayout
+        android:id="@+id/set_set_news_set"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/su4">
+
+        <ImageView
+            android:id="@+id/set_set_newsselect"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            />
+        
+    </RelativeLayout>
+	</LinearLayout
+	    
+	    >
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:orientation="vertical"
+	    android:layout_height="0dp"
+	    android:layout_weight="1"
+	    >
+    <ImageView
+        android:id="@+id/set_set_button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/guanyuchaoren"
+        />
+
+    <ImageView
+        android:id="@+id/set_set_version"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/su14" />
+
+    <ImageView
+        android:id="@+id/set_set_score"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/su16" />
+
+    <ImageView
+        android:id="@+id/set_set_exit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/exit_u20" />
+</LinearLayout>
+<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:orientation="vertical"
+	    android:layout_height="0dp"
+	    android:layout_weight="1"></LinearLayout>
+</LinearLayout>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <TextView
+        android:id="@+id/diningroom_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/diningroom_item_image"
+        android:layout_marginLeft="23dp"
+        android:layout_toRightOf="@+id/diningroom_item_image"
+        android:text="餐厅名称" />
+
+    <ImageView
+        android:id="@+id/diningroom_item_level"
+        android:layout_width="wrap_content"
+         android:layout_marginTop="15dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/diningroom_item_name"
+        android:layout_below="@+id/diningroom_item_name"
+        android:src="@drawable/star_red" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_alignBottom="@+id/diningroom_item_level"
+        android:layout_toRightOf="@+id/diningroom_item_level"
+        android:text="已售：" />
+
+    <TextView
+        android:id="@+id/diningroom_item_sold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         android:layout_marginTop="15dp"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_toRightOf="@+id/textView2"
+        android:text="sold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         android:layout_marginTop="15dp"
+        android:layout_alignBottom="@+id/diningroom_item_sold"
+        android:layout_toRightOf="@+id/diningroom_item_sold"
+        android:text="单" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/diningroom_item_level"
+        android:layout_below="@+id/diningroom_item_level"
+        android:text="起送价：￥" />
+
+    <TextView
+        android:id="@+id/diningroom_item_startPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView3"
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_toRightOf="@+id/textView3"
+        android:text="startprice" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/diningroom_item_startPrice"
+        android:layout_alignBottom="@+id/diningroom_item_startPrice"
+        android:layout_toRightOf="@+id/diningroom_item_startPrice"
+        android:text=" | " />
+
+    <TextView
+        android:id="@+id/diningroom_item_currentDistance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView1"
+        android:layout_alignBottom="@+id/textView1"
+        android:layout_toRightOf="@+id/textView1"
+        android:text="餐厅距离" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/diningroom_item_currentDistance"
+        android:layout_alignBottom="@+id/diningroom_item_currentDistance"
+        android:layout_toRightOf="@+id/diningroom_item_currentDistance"
+        android:text="米" />
+
+    <ImageView
+        android:id="@+id/diningroom_item_image"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        />
+
+    <TextView
+        android:id="@+id/diningroom_item_favorable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_below="@+id/textView3"
+        android:text="优惠活动" />
+
+</RelativeLayout>

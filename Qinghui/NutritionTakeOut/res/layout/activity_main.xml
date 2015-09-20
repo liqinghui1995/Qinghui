@@ -1,0 +1,129 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context=".MainActivity" >
+    
+<LinearLayout 
+      android:id="@+id/lall"
+      android:layout_width="fill_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical"
+
+      >
+   <LinearLayout 
+       android:id="@+id/l1"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical"
+       android:layout_weight="7"
+       
+       >
+
+	
+	    <RelativeLayout
+	        android:id="@+id/setting_relativeLayout"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:background="@drawable/ic_my_bg"
+	        android:paddingBottom="5dp"
+	        android:paddingTop="3dp" >
+	
+	        <ImageView
+	            android:id="@+id/headpic_imageView"
+	            android:layout_width="70dp"
+	            android:layout_height="50dp"
+	            android:layout_centerHorizontal="true"
+	            android:layout_centerVertical="true"
+	            android:src="@drawable/u88" />
+	
+	        <TextView
+	            android:id="@+id/user_textView"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            
+	            android:layout_below="@+id/headpic_imageView"
+	            android:layout_centerHorizontal="true"
+	            android:text="登陆/注册"
+	            android:textColor="#ffffff" />
+
+	    </RelativeLayout>
+       
+   </LinearLayout>   
+      <LinearLayout 
+       android:id="@+id/l2"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical"
+       android:layout_weight="8"
+       
+       >
+           <ImageView
+	        android:id="@+id/changename_img"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:src="@drawable/u10" />
+	
+	    <ImageView
+	        android:id="@+id/changepassword_immg"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:src="@drawable/u12" />
+	<ImageView
+	        android:id="@+id/my_add_adress_immg"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:src="@drawable/u14" />
+          
+          
+      </LinearLayout>  
+	    <ImageView
+	        android:id="@+id/myline"
+	        android:layout_width="match_parent"
+	        android:layout_height="4dp"
+	        
+	        android:src="@drawable/u31_line" />
+      <LinearLayout 
+       android:id="@+id/l3"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical"
+       android:layout_weight="7"
+      
+       >
+          	<ImageView
+	        android:id="@+id/setting_mypentacles"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:src="@drawable/u16" />
+	
+		    <ImageView
+		        android:id="@+id/setting_feedback"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"
+		        android:src="@drawable/u18" />
+		
+		    <ImageView
+		        android:id="@+id/setting_share"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"
+		        android:src="@drawable/u20" />
+		    <ImageView
+		        android:id="@+id/settting_setting"
+		        android:layout_width="match_parent"
+		        android:layout_height="40dp"
+		        android:layout_weight="1"
+		        android:src="@drawable/u22" />
+
+          
+      </LinearLayout>  
+  </LinearLayout>
+    
+
+</RelativeLayout>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/set_share_pop_textview1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="80dp"
+        android:text="@string/set_share_pop_textview1"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <ImageView
+        android:id="@+id/set_share_pop_img_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/ic_close" />
+
+    <ImageView
+        android:id="@+id/set_share_pop_img_pyqshare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/set_share_pop_img_close"
+        android:background="@drawable/pyqshare" />
+
+    <ImageView
+        android:id="@+id/set_share_pop_img_wxhyshare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/set_share_pop_img_pyqshare"
+        android:background="@drawable/wxhyshare" />
+
+    <ImageView
+        android:id="@+id/set_share_pop_img_xlwbshare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/set_share_pop_img_wxhyshare"
+        android:background="@drawable/xlwbshare" />
+
+</RelativeLayout>

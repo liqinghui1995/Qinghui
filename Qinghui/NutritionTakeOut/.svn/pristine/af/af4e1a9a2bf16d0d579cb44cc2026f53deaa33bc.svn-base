@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+ <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/btn_red_small_1_n" >
+
+        <ImageView
+            android:id="@+id/adress_returnbt"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:src="@drawable/leftjt" />
+
+        <TextView
+            android:id="@+id/change_name_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="添加地址"
+            android:textColor="#ffffff"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+        
+    </RelativeLayout>
+    <EditText 
+            android:id="@+id/adress_truename_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="10dp"
+            android:hint="请输入真实姓名"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            />
+    <EditText 
+            android:id="@+id/add_addressphone_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="10dp"
+            android:hint="请输入手机号"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            />
+    <EditText 
+            android:id="@+id/add_address_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="10dp"
+            android:hint="请输入添加的地址"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            />
+     <ImageView
+            android:id="@+id/savaadress_name_img"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            
+            
+            android:layout_margin="10dp"
+           
+           android:background="@drawable/minesave"
+            />
+		<LinearLayout 
+	    android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        
+	    ></LinearLayout>
+</LinearLayout>

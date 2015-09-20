@@ -1,0 +1,87 @@
+package com.example.nutrition.useractivity;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+
+import android.app.Activity;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.example.nutrition.R;
+import com.example.nutrition.user.UserBean;
+import com.example.nutrition.user.vo.UserAddressVo;
+import com.example.nutrition.utils.FastJsonUtil;
+import com.example.nutrition.utils.NetworkUtil;
+import com.lidroid.xutils.ViewUtils;
+import com.lidroid.xutils.view.annotation.event.OnClick;
+
+public class Update_adressActivity extends Activity{
+	
+	List<UserBean> list;
+	private EditText edit_addressName,edit_addressphoneNum,eidt_addressEditext;
+	private String  url="http://cblue.tunnel.mobi/WebShop/usersservlet?method=addaddress";
+	private ImageView image;
+	private SharedPreferences sp;
+	private String json_chuan;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.add_adress);
+		edit_addressName=(EditText) findViewById(R.id.adress_truename_edittext);
+		edit_addressphoneNum=(EditText) findViewById(R.id.add_addressphone_edittext);
+		eidt_addressEditext = (EditText) findViewById(R.id.add_address_edittext);
+		image = (ImageView) findViewById(R.id.savaadress_name_img);
+		//用XUtils注释组件
+				ViewUtils.inject(this);
+				sp = getSharedPreferences("mynewsset",MODE_PRIVATE);
+				json_chuan = sp.getString("reslut", "登陆/注册");
+				list = FastJsonUtil.getList(json_chuan, UserBean.class);
+				initView();
+	}
+	
+	private void initView() {
+		image.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				new Thread(){
+					public void run() {
+						String address = eidt_addressEditext.getText().toString();
+						List<NameValuePair> params = new ArrayList<NameValuePair>();
+						params.add(new BasicNameValuePair("userid", String.valueOf(list.get(0).getUser_id())));
+						params.add(new BasicNameValuePair("address", address));
+						String json = NetworkUtil.doPost(url, params);
+						UserAddressVo userAddressVo = FastJsonUtil.json2Object(json, UserAddressVo.class);
+//						Log.i("TAG", userAddressVo.toString());
+						handler.sendMessage(handler.obtainMessage(1, userAddressVo));
+					};
+				}.start();
+			}
+		});
+	}
+	Handler handler = new Handler(){
+		@Override
+		public void handleMessage(Message msg) {
+			 if(msg.what==1){
+				Toast.makeText(Update_adressActivity.this, "保存成功", 1).show();
+				setResult(1002);
+				finish();
+			}
+		}
+	};
+	@OnClick(R.id.adress_returnbt)
+	public void return_add_adress(View v){
+		finish();
+	}
+}

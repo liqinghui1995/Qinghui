@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+<ImageView 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/register_line"
+    />
+
+    <RelativeLayout
+        android:id="@+id/fragment2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <EditText
+            android:id="@+id/et_zhuce_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:ems="11"
+            android:hint="请输入手机号"
+            android:inputType="number" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/et_zhuce_userpassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/et_zhuce_username"
+            android:layout_alignRight="@+id/et_zhuce_username"
+            android:layout_below="@+id/et_zhuce_username"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="密码6-10位数字字母组合"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/btn_zhuce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/et_zhuce_userpassword"
+            android:layout_alignRight="@+id/et_zhuce_userpassword"
+            android:layout_below="@+id/et_zhuce_userpassword"
+            android:background="#CCC"
+            android:layout_marginTop="10dp"
+            android:text="注册"
+            android:textColor="#FFF" />
+
+        <TextView
+            android:id="@+id/tv_protocol1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_zhuce"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="点击上面&apos;注册&apos;按钮,即表示您同意" />
+
+        <TextView
+            android:id="@+id/tv_protocol2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_protocol1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="《营养餐注册协议》"
+            android:textColor="#f80b08" />
+    </RelativeLayout>
+
+</LinearLayout>
