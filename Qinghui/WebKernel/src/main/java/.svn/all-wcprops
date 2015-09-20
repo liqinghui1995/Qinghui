@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/webRepositories/!svn/ver/89/WebKernel/src/main/java
+END
+jdbc.properties
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/webRepositories/!svn/ver/89/WebKernel/src/main/java/jdbc.properties
+END
+log4j.properties
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/webRepositories/!svn/ver/7/WebKernel/src/main/java/log4j.properties
+END
+beans.xml
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/webRepositories/!svn/ver/7/WebKernel/src/main/java/beans.xml
+END
