@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/webRepositories/!svn/ver/41/WebCustomer/target/surefire-reports
+END
+com.cblue.modual.user.service.impl.TestNourishmentFoodServiceImpl.txt
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/webRepositories/!svn/ver/41/WebCustomer/target/surefire-reports/com.cblue.modual.user.service.impl.TestNourishmentFoodServiceImpl.txt
+END
+com.cblue.modual.user.service.impl.TestUserInfoServiceImpl.txt
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/webRepositories/!svn/ver/41/WebCustomer/target/surefire-reports/com.cblue.modual.user.service.impl.TestUserInfoServiceImpl.txt
+END
+TEST-com.cblue.modual.user.service.impl.TestUserInfoServiceImpl.xml
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/webRepositories/!svn/ver/41/WebCustomer/target/surefire-reports/TEST-com.cblue.modual.user.service.impl.TestUserInfoServiceImpl.xml
+END
+TEST-com.cblue.modual.user.service.impl.TestNourishmentFoodServiceImpl.xml
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/webRepositories/!svn/ver/41/WebCustomer/target/surefire-reports/TEST-com.cblue.modual.user.service.impl.TestNourishmentFoodServiceImpl.xml
+END
+com.cblue.modual.user.service.impl.TestDiningRoomServiceImpl.txt
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/webRepositories/!svn/ver/41/WebCustomer/target/surefire-reports/com.cblue.modual.user.service.impl.TestDiningRoomServiceImpl.txt
+END
+TEST-com.cblue.modual.user.service.impl.TestDiningRoomServiceImpl.xml
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/webRepositories/!svn/ver/41/WebCustomer/target/surefire-reports/TEST-com.cblue.modual.user.service.impl.TestDiningRoomServiceImpl.xml
+END

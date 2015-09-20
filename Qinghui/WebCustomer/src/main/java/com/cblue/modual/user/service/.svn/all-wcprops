@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/webRepositories/!svn/ver/86/WebCustomer/src/main/java/com/cblue/modual/user/service
+END
+SearchDistrictService.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/webRepositories/!svn/ver/86/WebCustomer/src/main/java/com/cblue/modual/user/service/SearchDistrictService.java
+END
+UserAddressService.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/webRepositories/!svn/ver/52/WebCustomer/src/main/java/com/cblue/modual/user/service/UserAddressService.java
+END
+UserInfoService.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/webRepositories/!svn/ver/5/WebCustomer/src/main/java/com/cblue/modual/user/service/UserInfoService.java
+END
+UserGiftService.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/webRepositories/!svn/ver/65/WebCustomer/src/main/java/com/cblue/modual/user/service/UserGiftService.java
+END
+UserGiftRecordService.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/webRepositories/!svn/ver/65/WebCustomer/src/main/java/com/cblue/modual/user/service/UserGiftRecordService.java
+END
+UserTicklingService.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/webRepositories/!svn/ver/65/WebCustomer/src/main/java/com/cblue/modual/user/service/UserTicklingService.java
+END
+HomeViewImgService.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/webRepositories/!svn/ver/65/WebCustomer/src/main/java/com/cblue/modual/user/service/HomeViewImgService.java
+END
+SearchCityService.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/webRepositories/!svn/ver/85/WebCustomer/src/main/java/com/cblue/modual/user/service/SearchCityService.java
+END

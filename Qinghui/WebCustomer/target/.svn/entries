@@ -1,0 +1,77 @@
+10
+
+dir
+89
+https://chengzhao/svn/webRepositories/WebCustomer/target
+https://chengzhao/svn/webRepositories
+
+
+
+2015-09-03T01:06:08.610199Z
+41
+chengzhao
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+52fb0286-08d7-7544-ad5e-7a195193e99d
+
+WebCustomer-0.0.1-SNAPSHOT.jar
+file
+
+
+
+
+2015-09-16T02:35:19.547000Z
+70c08a5b3f386817fab77d9adc8bce5f
+2015-09-03T01:06:08.610199Z
+41
+chengzhao
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+16451
+
+classes
+dir
+
+maven-archiver
+dir
+
+maven-status
+dir
+
+surefire-reports
+dir
+
+test-classes
+dir
+
