@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/webRepositories/!svn/ver/88/WebShop%20Maven%20Webapp/src/main/java/com/cblue/modual/user/action
+END
+SearchDistrictServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/webRepositories/!svn/ver/88/WebShop%20Maven%20Webapp/src/main/java/com/cblue/modual/user/action/SearchDistrictServlet.java
+END
+UsersServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/webRepositories/!svn/ver/88/WebShop%20Maven%20Webapp/src/main/java/com/cblue/modual/user/action/UsersServlet.java
+END
+HomeHotfood.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/webRepositories/!svn/ver/88/WebShop%20Maven%20Webapp/src/main/java/com/cblue/modual/user/action/HomeHotfood.java
+END
+LoginServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/webRepositories/!svn/ver/16/WebShop%20Maven%20Webapp/src/main/java/com/cblue/modual/user/action/LoginServlet.java
+END
+HotFoodBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/webRepositories/!svn/ver/88/WebShop%20Maven%20Webapp/src/main/java/com/cblue/modual/user/action/HotFoodBean.java
+END
+HomeViewPagerServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/webRepositories/!svn/ver/88/WebShop%20Maven%20Webapp/src/main/java/com/cblue/modual/user/action/HomeViewPagerServlet.java
+END
+SearchCityServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/webRepositories/!svn/ver/88/WebShop%20Maven%20Webapp/src/main/java/com/cblue/modual/user/action/SearchCityServlet.java
+END
+DiningRoomServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/webRepositories/!svn/ver/63/WebShop%20Maven%20Webapp/src/main/java/com/cblue/modual/user/action/DiningRoomServlet.java
+END
